@@ -1,0 +1,36 @@
+"*":
+  "bracket-matcher":
+    autocompleteCharacters: [
+      "()"
+      "[]"
+      "{}"
+      "\"\""
+      "``"
+      "“”"
+      "‘’"
+      "«»"
+      "‹›"
+    ]
+  core:
+    customFileTypes:
+      "source.claim": [
+        "space"
+        "model"
+        "line"
+      ]
+    telemetryConsent: "limited"
+    themes: [
+      "atom-light-ui"
+      "atom-light-syntax"
+    ]
+    uriHandlerRegistration: "never"
+  editor:
+    fontFamily: "Monaco"
+    invisibles: {}
+    preferredLineLength: 1000
+    scrollPastEnd: true
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false

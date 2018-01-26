@@ -21,6 +21,7 @@ if global.isGeneratingSnapshot
   require('background-tips')
   require('bookmarks')
   require('bracket-matcher')
+  require('claimspace-atom-ide')
   require('command-palette')
   require('deprecation-cop')
   require('dev-live-reload')

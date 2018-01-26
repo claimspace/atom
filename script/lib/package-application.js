@@ -15,8 +15,8 @@ module.exports = function () {
   const appName = getAppName()
   console.log(`Running electron-packager on ${CONFIG.intermediateAppPath} with app name "${appName}"`)
   return runPackager({
-    'app-bundle-id': 'com.github.atom',
-    'app-copyright': `Copyright © 2014-${(new Date()).getFullYear()} GitHub, Inc. All rights reserved.`,
+    'app-bundle-id': 'cloud.claimspace.atom',
+    'app-copyright': `Copyright © 2018-${(new Date()).getFullYear()} Claimspace, Inc. All rights reserved.`,
     'app-version': CONFIG.appMetadata.version,
     'arch': process.platform === 'darwin' ? 'x64' : process.arch, // OS X is 64-bit only
     'asar': {unpack: buildAsarUnpackGlobExpression()},
@@ -24,7 +24,7 @@ module.exports = function () {
     'download': {cache: CONFIG.electronDownloadPath},
     'dir': CONFIG.intermediateAppPath,
     'extend-info': path.join(CONFIG.repositoryRootPath, 'resources', 'mac', 'atom-Info.plist'),
-    'helper-bundle-id': 'com.github.atom.helper',
+    'helper-bundle-id': 'cloud.claimspace.atom.helper',
     'icon': getIcon(),
     'name': appName,
     'out': CONFIG.buildOutputPath,
@@ -32,9 +32,9 @@ module.exports = function () {
     'platform': process.platform,
     'version': CONFIG.appMetadata.electronVersion,
     'version-string': {
-      'CompanyName': 'GitHub, Inc.',
-      'FileDescription': 'Atom',
-      'ProductName': 'Atom'
+      'CompanyName': 'Claimspace, Inc.',
+      'FileDescription': 'Claimspace',
+      'ProductName': 'Claimspace'
     }
   }).then((packagedAppPath) => {
     let bundledResourcesPath
@@ -85,8 +85,8 @@ function copyNonASARResources (packagedAppPath, bundledResourcesPath) {
 
 function setAtomHelperVersion (packagedAppPath) {
   const frameworksPath = path.join(packagedAppPath, 'Contents', 'Frameworks')
-  const helperPListPath = path.join(frameworksPath, 'Atom Helper.app', 'Contents', 'Info.plist')
-  console.log(`Setting Atom Helper Version for ${helperPListPath}`)
+  const helperPListPath = path.join(frameworksPath, 'Claimspace Helper.app', 'Contents', 'Info.plist')
+  console.log(`Setting Claimspace Helper Version for ${helperPListPath}`)
   spawnSync('/usr/libexec/PlistBuddy', ['-c', `Add CFBundleVersion string ${CONFIG.appMetadata.version}`, helperPListPath])
   spawnSync('/usr/libexec/PlistBuddy', ['-c', `Add CFBundleShortVersionString string ${CONFIG.appMetadata.version}`, helperPListPath])
 }
@@ -114,22 +114,22 @@ function buildAsarUnpackGlobExpression () {
 
 function getAppName () {
   if (process.platform === 'darwin') {
-    return CONFIG.channel === 'beta' ? 'Atom Beta' : 'Atom'
+    return CONFIG.channel === 'beta' ? 'Claimspace Beta' : 'Claimspace'
   } else {
-    return 'atom'
+    return 'claimspace'
   }
 }
 
 function getIcon () {
   switch (process.platform) {
     case 'darwin':
-      return path.join(CONFIG.repositoryRootPath, 'resources', 'app-icons', CONFIG.channel, 'atom.icns')
+      return path.join(CONFIG.repositoryRootPath, 'resources', 'app-icons', CONFIG.channel, 'claimspace.icns')
     case 'linux':
       // Don't pass an icon, as the dock/window list icon is set via the icon
       // option in the BrowserWindow constructor in atom-window.coffee.
       return null
     default:
-      return path.join(CONFIG.repositoryRootPath, 'resources', 'app-icons', CONFIG.channel, 'atom.ico')
+      return path.join(CONFIG.repositoryRootPath, 'resources', 'app-icons', CONFIG.channel, 'claimspace.ico')
   }
 }
 

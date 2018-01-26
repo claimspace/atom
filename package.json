@@ -1,7 +1,7 @@
 {
   "name": "atom",
   "productName": "Atom",
-  "version": "1.25.0-dev",
+  "version": "1.25.3-dev",
   "description": "A hackable text editor for the 21st Century.",
   "main": "./src/main-process/main.js",
   "repository": {
@@ -102,6 +102,7 @@
     "background-tips": "0.27.1",
     "bookmarks": "0.45.1",
     "bracket-matcher": "0.89.1",
+    "claimspace-atom-ide": "0.2.11",
     "command-palette": "0.43.0",
     "dalek": "0.2.1",
     "deprecation-cop": "0.56.9",

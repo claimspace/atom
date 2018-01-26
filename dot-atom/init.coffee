@@ -9,3 +9,8 @@
 # atom.workspace.observeTextEditors (editor) ->
 #   editor.onDidSave ->
 #     console.log "Saved! #{editor.getPath()}"
+
+# Force the native app to enable the IDE
+atom.commands.dispatch(
+   atom.views.getView(atom.workspace),
+   'claimspace-atom-ide:toggle-native')

@@ -125,10 +125,10 @@ class ThemeManager {
     // available.
     if (themeNames.length < 2) {
       const builtInThemeNames = [
-        'atom-dark-syntax',
-        'atom-dark-ui',
         'atom-light-syntax',
         'atom-light-ui',
+        'atom-dark-syntax',
+        'atom-dark-ui',
         'base16-tomorrow-dark-theme',
         'base16-tomorrow-light-theme',
         'solarized-dark-syntax',
@@ -136,12 +136,12 @@ class ThemeManager {
       ]
       themeNames = _.intersection(themeNames, builtInThemeNames)
       if (themeNames.length === 0) {
-        themeNames = ['one-dark-syntax', 'one-dark-ui']
+        themeNames = ['atom-light-syntax', 'atom-light-ui']
       } else if (themeNames.length === 1) {
         if (_.endsWith(themeNames[0], '-ui')) {
-          themeNames.unshift('one-dark-syntax')
+          themeNames.unshift('atom-light-syntax')
         } else {
-          themeNames.push('one-dark-ui')
+          themeNames.push('atom-light-ui')
         }
       }
     }

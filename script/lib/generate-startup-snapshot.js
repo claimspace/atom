@@ -22,6 +22,7 @@ module.exports = function (packagedAppPath) {
       process.stdout.write(`Generating snapshot script at "${snapshotScriptPath}" (${++processedFiles})`)
 
       const relativePath = path.relative(baseDirPath, modulePath)
+
       return (
         modulePath.endsWith('.node') ||
         coreModules.has(modulePath) ||
@@ -71,12 +72,12 @@ module.exports = function (packagedAppPath) {
     const verifySnapshotScriptPath = path.join(CONFIG.repositoryRootPath, 'script', 'verify-snapshot-script')
     let nodeBundledInElectronPath
     if (process.platform === 'darwin') {
-      const executableName = CONFIG.channel === 'beta' ? 'Atom Beta' : 'Atom'
+      const executableName = CONFIG.channel === 'beta' ? 'Claimspace Beta' : 'Claimspace'
       nodeBundledInElectronPath = path.join(packagedAppPath, 'Contents', 'MacOS', executableName)
     } else if (process.platform === 'win32') {
-      nodeBundledInElectronPath = path.join(packagedAppPath, 'atom.exe')
+      nodeBundledInElectronPath = path.join(packagedAppPath, 'claimspace.exe')
     } else {
-      nodeBundledInElectronPath = path.join(packagedAppPath, 'atom')
+      nodeBundledInElectronPath = path.join(packagedAppPath, 'claimspace')
     }
     childProcess.execFileSync(
       nodeBundledInElectronPath,

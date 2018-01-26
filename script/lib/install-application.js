@@ -62,9 +62,9 @@ module.exports = function (packagedAppPath, installDir) {
       })
     }
   } else {
-    const atomExecutableName = CONFIG.channel === 'stable' ? 'atom' : 'atom-' + CONFIG.channel
+    const atomExecutableName = CONFIG.channel === 'stable' ? 'claimspace-ide' : 'claimspace-ide-' + CONFIG.channel
     const apmExecutableName = CONFIG.channel === 'stable' ? 'apm' : 'apm-' + CONFIG.channel
-    const appName = CONFIG.channel === 'stable' ? 'Atom' : startCase('Atom ' + CONFIG.channel)
+    const appName = CONFIG.channel === 'stable' ? 'Claimspace' : startCase('Claimspace ' + CONFIG.channel)
     const appDescription = CONFIG.appMetadata.description
     const prefixDirPath = installDir !== '' ? handleTilde(installDir) : path.join('/usr', 'local')
     const shareDirPath = path.join(prefixDirPath, 'share')

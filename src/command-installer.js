@@ -42,7 +42,7 @@ class CommandInstaller {
   installAtomCommand (askForPrivilege, callback) {
     this.installCommand(
       path.join(this.getResourcesDirectory(), 'app', 'atom.sh'),
-      this.appVersion.includes('beta') ? 'atom-beta' : 'atom',
+      this.appVersion.includes('beta') ? 'claimspace-atom-beta' : 'claimspace-atom',
       askForPrivilege,
       callback
     )

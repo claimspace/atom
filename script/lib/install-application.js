@@ -62,7 +62,7 @@ module.exports = function (packagedAppPath, installDir) {
       })
     }
   } else {
-    const atomExecutableName = CONFIG.channel === 'stable' ? 'claimspace-ide' : 'claimspace-ide-' + CONFIG.channel
+    const atomExecutableName = CONFIG.channel === 'stable' ? 'claimspace-atom' : 'claimspace-atom-' + CONFIG.channel
     const apmExecutableName = CONFIG.channel === 'stable' ? 'apm' : 'apm-' + CONFIG.channel
     const appName = CONFIG.channel === 'stable' ? 'Claimspace' : startCase('Claimspace ' + CONFIG.channel)
     const appDescription = CONFIG.appMetadata.description

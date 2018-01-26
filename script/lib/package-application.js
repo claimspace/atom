@@ -123,13 +123,13 @@ function getAppName () {
 function getIcon () {
   switch (process.platform) {
     case 'darwin':
-      return path.join(CONFIG.repositoryRootPath, 'resources', 'app-icons', CONFIG.channel, 'claimspace.icns')
+      return path.join(CONFIG.repositoryRootPath, 'resources', 'app-icons', CONFIG.channel, 'claimspace-atom.icns')
     case 'linux':
       // Don't pass an icon, as the dock/window list icon is set via the icon
       // option in the BrowserWindow constructor in atom-window.coffee.
       return null
     default:
-      return path.join(CONFIG.repositoryRootPath, 'resources', 'app-icons', CONFIG.channel, 'claimspace.ico')
+      return path.join(CONFIG.repositoryRootPath, 'resources', 'app-icons', CONFIG.channel, 'claimspace-atom.ico')
   }
 }
 
@@ -156,7 +156,7 @@ function renamePackagedAppDir (packageOutputDirPath) {
     if (fs.existsSync(packagedAppPath)) fs.removeSync(packagedAppPath)
     fs.renameSync(path.join(packageOutputDirPath, appBundleName), packagedAppPath)
   } else if (process.platform === 'linux') {
-    const appName = CONFIG.channel === 'beta' ? 'atom-beta' : 'atom'
+    const appName = CONFIG.channel === 'beta' ? 'claimspace-beta' : 'claimspace'
     let architecture
     if (process.arch === 'ia32') {
       architecture = 'i386'
@@ -169,7 +169,7 @@ function renamePackagedAppDir (packageOutputDirPath) {
     if (fs.existsSync(packagedAppPath)) fs.removeSync(packagedAppPath)
     fs.renameSync(packageOutputDirPath, packagedAppPath)
   } else {
-    const appName = CONFIG.channel === 'beta' ? 'Atom Beta' : 'Atom'
+    const appName = CONFIG.channel === 'beta' ? 'Claimspace Beta' : 'Claimspace'
     packagedAppPath = path.join(CONFIG.buildOutputPath, appName)
     if (process.platform === 'win32' && process.arch !== 'ia32') {
       packagedAppPath += ` ${process.arch}`

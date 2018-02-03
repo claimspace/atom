@@ -21,7 +21,7 @@ module.exports = (packagedAppPath) => {
   }
 
   const cleanUp = () => {
-    for (let nupkgPath of glob.sync(`${CONFIG.buildOutputPath}/*.nupkg`)) {
+    for (let nupkgPath of glob.sync(`${CONFIG.buildOutputPath}/*.nupkg`)) {/**/
       if (!nupkgPath.includes(CONFIG.appMetadata.version)) {
         console.log(`Deleting downloaded nupkg for previous version at ${nupkgPath} to prevent it from being stored as an artifact`)
         fs.removeSync(nupkgPath)

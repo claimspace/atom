@@ -11,16 +11,16 @@ module.exports = function (packagedAppPath) {
   compress(packagedAppPath, appArchivePath)
 
   if (process.platform === 'darwin') {
-    const symbolsArchivePath = path.join(CONFIG.buildOutputPath, 'atom-mac-symbols.zip')
+    const symbolsArchivePath = path.join(CONFIG.buildOutputPath, 'claimspace-mac-symbols.zip')
     compress(CONFIG.symbolsPath, symbolsArchivePath)
   }
 }
 
 function getArchiveName () {
   switch (process.platform) {
-    case 'darwin': return 'atom-mac.zip'
-    case 'win32': return 'atom-windows.zip'
-    default: return `atom-${getLinuxArchiveArch()}.tar.gz`
+    case 'darwin': return 'claimspace-mac.zip'
+    case 'win32': return 'claimspace-windows.zip'
+    default: return `claimspace-${getLinuxArchiveArch()}.tar.gz`
   }
 }
 
